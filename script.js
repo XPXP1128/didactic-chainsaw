@@ -2,12 +2,18 @@ function enterSurprise() {
   document.getElementById('notification').classList.add('hidden');
   document.getElementById('surprise').classList.remove('hidden');
 
-  // 播放背景音乐
-  document.getElementById('bgm').play().catch(err => {
-    console.log('播放失败：', err);
+  const bgm1 = document.getElementById('bgm1');
+  const bgm2 = document.getElementById('bgm2');
+
+  // 播放第一首歌
+  bgm1.play().catch(err => console.log('播放失败:', err));
+
+  // 第一首播完后播放第二首
+  bgm1.addEventListener('ended', () => {
+    bgm2.play();
   });
 
-  // 启动粒子动画
+  // 显示爱心动画、文字
   document.getElementById('floatingHeartCanvas').style.display = 'block';
   startHeartAnimation();
 
@@ -18,8 +24,11 @@ function enterSurprise() {
 function generateWords() {
   const words = [
     "520快乐宝宝","520快乐", "我爱你", "希望你天天开心", "对我好", "我的涵宝宝",
-    "王艺涵", "爱你", "这是第二个520了呀", "照顾好自己", "少抽烟 好嘛", 
-    "请照顾好自己", "我最爱的宝贝", "我的愿望很简单", "么幺", "对我好", "我爱你" , "mua"
+    "王艺涵", "爱你", "这是第二个520了呀",
+     "照顾好自己", "少抽烟 好嘛", 
+    "亲亲","哼 不准不理我", "693天啦" , "记得吃饭" , "我嘴硬但我最爱你",
+    "请照顾好自己", "我最爱的宝贝", "我的愿望很简单", "么幺", "对我好",
+     "我爱你" , "mua"
   ];
   const container = document.getElementById('wordcloud');
 
