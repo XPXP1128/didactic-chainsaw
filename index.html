@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>吃瓜</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 第一屏：微信通知 -->
+  <div id="notification" class="screen">
+    <img src="pic1.jpg" class="notification-img" alt="微信通知" onclick="enterSurprise()" />
+  </div>
+
+  <!-- 第二屏：惊喜页面 -->
+  <div id="surprise" class="screen hidden">
+    <!-- 背景音乐 -->
+    <audio id="bgm" src="m1.mp3" autoplay loop></audio>
+
+    <!-- 粒子动画画布 -->
+    <canvas id="floatingHeartCanvas" style="display: none; position: absolute; z-index: 0;"></canvas>
+
+    <!-- 文字云 -->
+    <div class="wordcloud" id="wordcloud"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
